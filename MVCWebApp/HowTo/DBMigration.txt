@@ -1,0 +1,35 @@
+﻿Eerste keer de applicatie automatisch de database laten aanmaken, of een volgende migratie uitvoeren:
+
+// First time
+1. Build the application to make sure there are no errors.
+2. From the Tools menu, click Library Package Manager and then Package Manager Console.
+3. In the Package Manager Console window at the PM> prompt enter (CHANGE TO YOUR MODEL)
+Enable-Migrations -ContextTypeName MVCWebApp.Models.MVCWebAppDBContext
+The Enable-Migrations command creates a Configuration.cs file in a new Migrations folder.
+
+// After first time
+4. Build the project. (The following steps will fail if you don't build at this point.)
+5. In the Package Manager Console window, enter the command add-migration %NAME% to create the migration with name %NAME%
+Code First Migrations creates another class file in the Migrations folder (with the name {DateStamp}_%NAME%.cs ), 
+and this class contains code that creates the database schema. 
+The migration filename is pre-fixed with a timestamp to help with ordering. 
+Examine the {DateStamp}_Initial.cs  file, it contains the instructions to create the table for the DB. 
+When you update the database in the instructions below, this {DateStamp}_%NAME%.cs file will run and create the the DB schema.
+
+5. In the Package Manager Console, enter the command update-database to create the database and run the (optional) Seed method.
+If you get an error that indicates a table already exists and can't be created, 
+it is probably because you ran the application after you deleted the database and before you executed update-database.
+
+6. If you added a new field, make sure to check out [Bind(Include = "property, property1, etc")] attributes in the corresponding controller.
+The new field might have to be added there
+
+
+
+Seed method:
+        /*
+         * Instructions: http://www.asp.net/mvc/overview/getting-started/introduction/adding-a-new-field
+         */
+        /*
+         * Detected database created with a database initializer. Scaffolded migration '201507240916214_InitialCreate' corresponding to existing database. 
+         * To use an automatic migration instead, delete the Migrations folder and re-run Enable-Migrations specifying the -EnableAutomaticMigrations parameter.
+         */

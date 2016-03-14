@@ -1,0 +1,98 @@
+﻿@model MVCWebApp.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LicenseCostAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LicenseCostAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImplementationCostAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImplementationCostAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaintenanceCostAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaintenanceCostAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDeliveryCostAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDeliveryCostAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IntellectualPropertyType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IntellectualPropertyType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HostingType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HostingType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modified)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

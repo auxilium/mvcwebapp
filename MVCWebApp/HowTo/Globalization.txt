@@ -1,0 +1,14 @@
+﻿To add support for localized dates, replace
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+at the end of a Edit.cshtml file, with
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @{Html.RenderPartial("globalizedvalidation");}
+}
+
+Shared\globalizedvalidation.cshtml contains all the needed stuff for fixing validation on a DateTime for example. But also for decimal numbers (needs tweaking).

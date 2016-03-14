@@ -1,0 +1,82 @@
+﻿
+<!--
+First, we load Globalize's dependencies (`cldrjs` and its supplemental
+module).
+-->
+<script src="~/Scripts/cldr.js"></script>
+<script src="~/Scripts/cldr/event.js"></script>
+<script src="~/Scripts/cldr/supplemental.js"></script>
+
+<!-- Next, we load Globalize and its modules. -->
+<script src="~/Scripts/globalize.js"></script>
+<script src="~/Scripts/globalize/message.js"></script>
+<script src="~/Scripts/globalize/number.js"></script>
+<script src="~/Scripts/globalize/plural.js"></script>
+
+<!-- Load after globalize/number.js -->
+<script src="~/Scripts/globalize/date.js"></script>
+<script src="~/Scripts/globalize/currency.js"></script>
+
+<!-- Load after globalize/number.js and globalize/plural.js-->
+<script src="~/Scripts/globalize/relative-time.js"></script>
+
+<script>
+    // from https://github.com/jquery/globalize
+    // from https://github.com/jquery/globalize/blob/master/doc/cldr.md
+
+    // At this point, we have Globalize loaded. But, before we can use it, we
+    // need to feed it on the appropriate I18n content (Unicode CLDR). In order
+    // to do so, we use `Globalize.load()` and pass the content.
+    $.when(
+    // Core module
+    $.getJSON("/Scripts/json/supplemental/likelySubtags.json", function (data) { Globalize.load(data) }),
+
+    $.getJSON("/Scripts/json/main/@(System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)/currencies.json", function (data) { Globalize.load(data) }),
+    $.getJSON("/Scripts/json/supplemental/currencyData.json", function (data) { Globalize.load(data) }),
+
+    // Date module
+    $.getJSON("/Scripts/json/main/@(System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)/ca-gregorian.json", function (data) { Globalize.load(data) }),
+    $.getJSON("/Scripts/json/main/@(System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)/timeZoneNames.json", function (data) { Globalize.load(data) }),
+    $.getJSON("/Scripts/json/supplemental/timeData.json", function (data) { Globalize.load(data) }),
+    $.getJSON("/Scripts/json/supplemental/weekData.json", function (data) { Globalize.load(data) }),
+
+    // Number module
+    $.getJSON("/Scripts/json/main/@(System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)/numbers.json", function (data) { Globalize.load(data) }),
+    $.getJSON("/Scripts/json/supplemental/numberingSystems.json", function (data) { Globalize.load(data) }),
+
+    // Plural module
+    $.getJSON("/Scripts/json/supplemental/plurals.json", function (data) { Globalize.load(data) }),
+    $.getJSON("/Scripts/json/supplemental/ordinals.json", function (data) { Globalize.load(data) })
+
+    ).then(function () {
+        // Normalize $.get results, we only need the JSON, not the request statuses.
+        // From github.com/jquery/globalize/blob/master/doc/cldr.md
+        return [].slice.apply( arguments, [ 0 ] ).map(function( result ) {
+            return result[ 0 ];
+        });
+    }).then(Globalize.load).then(function() {
+        // Instantiate "en".
+        //var nl = Globalize("@(System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)");
+        Globalize.locale('@(System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)');
+
+        // Fix jQuery datetime validation for this locale
+        $.validator.methods.date = function (value, element) {
+            return this.optional(element) ||
+                Globalize.parseDate(value);
+        }
+
+        // Fix jQuery number validation for this locale
+        $.validator.methods.number = function (value, element) {
+                return this.optional(element) ||
+                    !isNaN(Globalize.parseNumber(value));
+        }
+        jQuery.extend(jQuery.validator.methods, {
+            range: function (value, element, param) {
+                //Use the Globalization plugin to parse the value
+                var val = Globalize.parseNumber(value);
+                return this.optional(element) || (
+                    val >= param[0] && val <= param[1]);
+            }
+        });
+    });
+</script>
