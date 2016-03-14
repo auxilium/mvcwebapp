@@ -1,4 +1,4 @@
-**Verbeteringen graag in een eigen branch**
+**Verbeteringen graag eerst in een eigen branch**
 
 ###Basis web app
 
