@@ -52,7 +52,7 @@ namespace MVCWebApp.Migrations
                 Email = "admin@MVCWebApp.nl",
                 EmailConfirmed = true
             };
-            ir = um.Create(admin, "toeter");
+            ir = um.Create(admin, "password");
             if (ir.Succeeded == false)
                 return ir.Succeeded;
             ir = um.AddToRole(admin.Id, Statics.RoleNames.Administrator);
@@ -63,7 +63,7 @@ namespace MVCWebApp.Migrations
                 Email = "user@MVCWebApp.nl",
                 EmailConfirmed = true
             };
-            ir = um.Create(user, "toeter");
+            ir = um.Create(user, "password");
             if (ir.Succeeded == false)
                 return ir.Succeeded;
             ir = um.AddToRole(user.Id, Statics.RoleNames.CanManageUsers);

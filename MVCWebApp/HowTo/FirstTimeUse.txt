@@ -1,0 +1,10 @@
+﻿// First time
+1. Build the application to make sure there are no errors.
+2. From the Tools menu, click Library Package Manager and then Package Manager Console.
+3. In the Package Manager Console window at the PM> prompt enter (CHANGE TO YOUR MODEL)
+Enable-Migrations -ContextTypeName MVCWebApp.Models.ApplicationDbContext
+The Enable-Migrations command creates a Configuration.cs file in a new Migrations folder.
+
+4. Run the app - should work but you cant log in yet
+5. In the Package Manager Console, enter the command "update-database" to create the database and run the (optional) Seed method.
+6. You can now log in as User or Admin

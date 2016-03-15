@@ -36,13 +36,13 @@ namespace MVCWebApp.Models
 
     public enum IntellectualPropertyType
     {
-        PwC = 1,
+        This = 1,
         Other = 2
     }
 
     public enum HostingType
     {
-        PwC = 1,
+        This = 1,
         Other = 2
     }
 }
