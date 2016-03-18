@@ -359,6 +359,8 @@
     <Content Include="Views\Account - Copy\SendCode.cshtml" />
     <Content Include="Views\Account - Copy\VerifyCode.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
