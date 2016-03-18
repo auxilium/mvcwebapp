@@ -6,7 +6,6 @@
 
 <h2>Edit</h2>
 
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -66,18 +65,26 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IntellectualPropertyType, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.IntellectualPropertyType, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IntellectualPropertyType, "", new { @class = "text-danger" })
+                @Html.EnumDropDownListFor(model => model.Type, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.HostingType, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Created, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.HostingType, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.HostingType, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Created, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Created, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Modified, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Modified, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Modified, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -92,8 +99,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    @{Html.RenderPartial("globalizedvalidation");}
-}

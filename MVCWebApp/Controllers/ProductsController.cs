@@ -46,7 +46,7 @@ namespace MVCWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Description,LicenseCostAmount,ImplementationCostAmount,MaintenanceCostAmount,ServiceDeliveryCostAmount,IntellectualPropertyType,HostingType,Created,Modified")] Product product)
+        public ActionResult Create([Bind(Include = "ID,Title,Description,LicenseCostAmount,ImplementationCostAmount,MaintenanceCostAmount,ServiceDeliveryCostAmount,Type,Created,Modified")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace MVCWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Description,LicenseCostAmount,ImplementationCostAmount,MaintenanceCostAmount,ServiceDeliveryCostAmount,IntellectualPropertyType,HostingType,Created,Modified")] Product product)
+        public ActionResult Edit([Bind(Include = "ID,Title,Description,LicenseCostAmount,ImplementationCostAmount,MaintenanceCostAmount,ServiceDeliveryCostAmount,Type,Created,Modified")] Product product)
         {
             if (ModelState.IsValid)
             {

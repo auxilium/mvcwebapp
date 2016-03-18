@@ -23,8 +23,6 @@ namespace MVCWebApp.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Product> Products { get; set; }
-        public DbSet<EntryPointGroup> EntryPointGroups { get; set; }
-        public DbSet<EntryPoint> EntryPoints { get; set; }
         public DbSet<Video> Videos { get; set; }
         public DbSet<Image> Images { get; set; }
 

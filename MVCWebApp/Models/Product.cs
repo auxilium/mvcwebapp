@@ -26,21 +26,13 @@ namespace MVCWebApp.Models
         public decimal ServiceDeliveryCostAmount { get; set; }
         #endregion
 
-        public IntellectualPropertyType? IntellectualPropertyType { get; set; }
-        public HostingType? HostingType { get; set; }
+        public ProductType? Type { get; set; }
 
-        public virtual ICollection<EntryPoint> EntryPoints { get; set; }
         public virtual ICollection<Video> Videos { get; set; }
         public virtual ICollection<Image> Images { get; set; }
     }
 
-    public enum IntellectualPropertyType
-    {
-        This = 1,
-        Other = 2
-    }
-
-    public enum HostingType
+    public enum ProductType
     {
         This = 1,
         Other = 2
