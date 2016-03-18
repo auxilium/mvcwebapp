@@ -217,6 +217,7 @@
     <Content Include="fonts\myriad-set-pro_ultralight.svg" />
     <Content Include="Global.asax" />
     <Content Include="HowTo\DBMigration.txt" />
+    <Content Include="HowTo\FirstTimeUse.txt" />
     <Content Include="HowTo\Globalization.txt" />
     <Content Include="fonts\myriad-set-pro_bold.eot" />
     <Content Include="fonts\myriad-set-pro_bold.otf" />
