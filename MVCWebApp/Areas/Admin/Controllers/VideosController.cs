@@ -8,109 +8,109 @@ using System.Web;
 using System.Web.Mvc;
 using MVCWebApp.Models;
 
-namespace MVCWebApp.Controllers
+namespace MVCWebApp.Areas.Admin.Controllers
 {
-    public class ImagesController : Controller
+    public class VideosController : AdminBaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Images
+        // GET: Admin/Videos
         public ActionResult Index()
         {
-            return View(db.Images.ToList());
+            return View(db.Videos.ToList());
         }
 
-        // GET: Images/Details/5
+        // GET: Admin/Videos/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Image image = db.Images.Find(id);
-            if (image == null)
+            Video video = db.Videos.Find(id);
+            if (video == null)
             {
                 return HttpNotFound();
             }
-            return View(image);
+            return View(video);
         }
 
-        // GET: Images/Create
+        // GET: Admin/Videos/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Images/Create
+        // POST: Admin/Videos/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,URL,Title,Description,Created,Modified")] Image image)
+        public ActionResult Create([Bind(Include = "ID,URL,Title,Description,Created,Modified")] Video video)
         {
             if (ModelState.IsValid)
             {
-                db.Images.Add(image);
+                db.Videos.Add(video);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(image);
+            return View(video);
         }
 
-        // GET: Images/Edit/5
+        // GET: Admin/Videos/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Image image = db.Images.Find(id);
-            if (image == null)
+            Video video = db.Videos.Find(id);
+            if (video == null)
             {
                 return HttpNotFound();
             }
-            return View(image);
+            return View(video);
         }
 
-        // POST: Images/Edit/5
+        // POST: Admin/Videos/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,URL,Title,Description,Created,Modified")] Image image)
+        public ActionResult Edit([Bind(Include = "ID,URL,Title,Description,Created,Modified")] Video video)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(image).State = EntityState.Modified;
+                db.Entry(video).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(image);
+            return View(video);
         }
 
-        // GET: Images/Delete/5
+        // GET: Admin/Videos/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Image image = db.Images.Find(id);
-            if (image == null)
+            Video video = db.Videos.Find(id);
+            if (video == null)
             {
                 return HttpNotFound();
             }
-            return View(image);
+            return View(video);
         }
 
-        // POST: Images/Delete/5
+        // POST: Admin/Videos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Image image = db.Images.Find(id);
-            db.Images.Remove(image);
+            Video video = db.Videos.Find(id);
+            db.Videos.Remove(video);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

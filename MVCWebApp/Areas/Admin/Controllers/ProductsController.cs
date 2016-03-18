@@ -8,109 +8,109 @@ using System.Web;
 using System.Web.Mvc;
 using MVCWebApp.Models;
 
-namespace MVCWebApp.Controllers
+namespace MVCWebApp.Areas.Admin.Controllers
 {
-    public class VideosController : Controller
+    public class ProductsController : AdminBaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Videos
+        // GET: Admin/Products
         public ActionResult Index()
         {
-            return View(db.Videos.ToList());
+            return View(db.Products.ToList());
         }
 
-        // GET: Videos/Details/5
+        // GET: Admin/Products/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Video video = db.Videos.Find(id);
-            if (video == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(video);
+            return View(product);
         }
 
-        // GET: Videos/Create
+        // GET: Admin/Products/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Videos/Create
+        // POST: Admin/Products/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,URL,Title,Description,Created,Modified")] Video video)
+        public ActionResult Create([Bind(Include = "ID,Title,Description,LicenseCostAmount,ImplementationCostAmount,MaintenanceCostAmount,ServiceDeliveryCostAmount,Type,Created,Modified")] Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Videos.Add(video);
+                db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(video);
+            return View(product);
         }
 
-        // GET: Videos/Edit/5
+        // GET: Admin/Products/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Video video = db.Videos.Find(id);
-            if (video == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(video);
+            return View(product);
         }
 
-        // POST: Videos/Edit/5
+        // POST: Admin/Products/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,URL,Title,Description,Created,Modified")] Video video)
+        public ActionResult Edit([Bind(Include = "ID,Title,Description,LicenseCostAmount,ImplementationCostAmount,MaintenanceCostAmount,ServiceDeliveryCostAmount,Type,Created,Modified")] Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(video).State = EntityState.Modified;
+                db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(video);
+            return View(product);
         }
 
-        // GET: Videos/Delete/5
+        // GET: Admin/Products/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Video video = db.Videos.Find(id);
-            if (video == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(video);
+            return View(product);
         }
 
-        // POST: Videos/Delete/5
+        // POST: Admin/Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Video video = db.Videos.Find(id);
-            db.Videos.Remove(video);
+            Product product = db.Products.Find(id);
+            db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

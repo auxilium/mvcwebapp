@@ -16,7 +16,8 @@ namespace MVCWebApp
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "MVCWebApp.Controllers" } // zodat ie in de juiste map kijkt, stackoverflow.com/questions/7842293
             );
         }
     }
