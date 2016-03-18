@@ -1,0 +1,51 @@
+/*
+	Company name : Auxilium BV
+	Made by : Martin Zuidwijk
+	Made on	: 10-02-2016
+*/
+
+/*#############################################################################################
+## VENDOR: PRISM HACKS
+#############################################################################################*/
+
+/* Changing the line-height so that there is minimal space between the lines */
+code[class*="language-"], pre[class*="language-"] {	line-height: 1; }
+
+/* Setting a smaller font-size, getting rid of the border and padding */
+code { font-family: 'Myriad Set Pro', sans-serif !important; font-weight: normal !important; font-size: 0.95em; border: none; padding: 0; line-height: 1.2 !important;}
+
+/* Giving the line-numbers the proper line-height to make them line up perfectly */
+pre.line-numbers { font-family: 'Myriad Set Pro', sans-serif !important; font-weight: normal !important; font-size: 0.95em; padding-left: 3em; }
+.line-numbers-rows { margin-top: -1px; line-height: 1.2 !important; }
+
+/* Getting rid of the border-raduis of the code block */
+pre[class*="language-"] { border-radius: 0; }
+
+/*  */
+.copytoclipboard-wrapper { position: relative; }
+.copytoclipboard-wrapper button { position: absolute; top: 0; right: 0; }
+
+
+
+/*#############################################################################################
+## HELPERS
+#############################################################################################*/
+
+.hide-code-block { display: none; }
+.hide-code-button { display: none; }
+
+section { padding-bottom: 3em; display: inline-block; }
+
+label span {
+	color: #616161;
+	padding-left: 1em;
+}
+
+
+
+
+
+
+
+
+

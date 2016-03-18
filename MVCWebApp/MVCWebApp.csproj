@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +40,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -106,12 +115,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -171,6 +174,10 @@
     <Compile Include="Migrations\201507310948486_Initial.Designer.cs">
       <DependentUpon>201507310948486_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603151413370_AuxWebApp.cs" />
+    <Compile Include="Migrations\201603151413370_AuxWebApp.Designer.cs">
+      <DependentUpon>201603151413370_AuxWebApp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EntryPoint.cs" />
@@ -186,18 +193,65 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
+    <Content Include="Content\app.css" />
+    <Content Include="Content\aux_style.css" />
+    <Content Include="Content\demo.css" />
+    <Content Include="Content\fonts.css" />
+    <Content Include="Content\foundation-flex.css" />
+    <Content Include="Content\foundation-rtl.css" />
+    <Content Include="Content\foundation.css" />
+    <Content Include="Content\foundation.min.css" />
+    <Content Include="Content\normalize.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\vendor\prism\prism.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\myriad-set-pro_bold.svg" />
+    <Content Include="fonts\myriad-set-pro_medium.svg" />
+    <Content Include="fonts\myriad-set-pro_semibold.svg" />
+    <Content Include="fonts\myriad-set-pro_text.svg" />
+    <Content Include="fonts\myriad-set-pro_thin.svg" />
+    <Content Include="fonts\myriad-set-pro_ultralight.svg" />
+    <Content Include="Global.asax" />
     <Content Include="HowTo\DBMigration.txt" />
     <Content Include="HowTo\Globalization.txt" />
+    <Content Include="fonts\myriad-set-pro_bold.eot" />
+    <Content Include="fonts\myriad-set-pro_bold.otf" />
+    <Content Include="fonts\myriad-set-pro_bold.ttf" />
+    <Content Include="fonts\myriad-set-pro_bold.woff" />
+    <Content Include="fonts\myriad-set-pro_medium.eot" />
+    <Content Include="fonts\myriad-set-pro_medium.otf" />
+    <Content Include="fonts\myriad-set-pro_medium.ttf" />
+    <Content Include="fonts\myriad-set-pro_medium.woff" />
+    <Content Include="fonts\myriad-set-pro_semibold.eot" />
+    <Content Include="fonts\myriad-set-pro_semibold.otf" />
+    <Content Include="fonts\myriad-set-pro_semibold.ttf" />
+    <Content Include="fonts\myriad-set-pro_semibold.woff" />
+    <Content Include="fonts\myriad-set-pro_text.eot" />
+    <Content Include="fonts\myriad-set-pro_text.otf" />
+    <Content Include="fonts\myriad-set-pro_text.ttf" />
+    <Content Include="fonts\myriad-set-pro_text.woff" />
+    <Content Include="fonts\myriad-set-pro_thin.eot" />
+    <Content Include="fonts\myriad-set-pro_thin.otf" />
+    <Content Include="fonts\myriad-set-pro_thin.ttf" />
+    <Content Include="fonts\myriad-set-pro_thin.woff" />
+    <Content Include="fonts\myriad-set-pro_ultralight.eot" />
+    <Content Include="fonts\myriad-set-pro_ultralight.otf" />
+    <Content Include="fonts\myriad-set-pro_ultralight.ttf" />
+    <Content Include="fonts\myriad-set-pro_ultralight.woff" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
     <Content Include="Scripts\cldr\supplemental.js" />
     <Content Include="Scripts\cldr\unresolved.js" />
+    <Content Include="Scripts\demo.js" />
+    <Content Include="Scripts\foundation.js" />
+    <Content Include="Scripts\foundation.min.js" />
     <Content Include="Scripts\globalize.js" />
     <Content Include="Scripts\globalize\currency.js" />
     <Content Include="Scripts\globalize\date.js" />
@@ -205,21 +259,14 @@
     <Content Include="Scripts\globalize\number.js" />
     <Content Include="Scripts\globalize\plural.js" />
     <Content Include="Scripts\globalize\relative-time.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jquery.validate.zbugfix.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\json\main\en\ca-generic.json" />
-    <Content Include="Scripts\json\main\en\ca-gregorian.json" />
-    <Content Include="Scripts\json\main\en\currencies.json" />
-    <Content Include="Scripts\json\main\en\dateFields.json" />
-    <Content Include="Scripts\json\main\en\languages.json" />
-    <Content Include="Scripts\json\main\en\localeDisplayNames.json" />
-    <Content Include="Scripts\json\main\en\numbers.json" />
-    <Content Include="Scripts\json\main\en\scripts.json" />
-    <Content Include="Scripts\json\main\en\territories.json" />
-    <Content Include="Scripts\json\main\en\timeZoneNames.json" />
-    <Content Include="Scripts\json\main\en\transformNames.json" />
-    <Content Include="Scripts\json\main\en\variants.json" />
     <Content Include="Scripts\json\main\en-GB\ca-generic.json" />
     <Content Include="Scripts\json\main\en-GB\ca-gregorian.json" />
     <Content Include="Scripts\json\main\en-GB\currencies.json" />
@@ -232,6 +279,18 @@
     <Content Include="Scripts\json\main\en-GB\timeZoneNames.json" />
     <Content Include="Scripts\json\main\en-GB\transformNames.json" />
     <Content Include="Scripts\json\main\en-GB\variants.json" />
+    <Content Include="Scripts\json\main\en\ca-generic.json" />
+    <Content Include="Scripts\json\main\en\ca-gregorian.json" />
+    <Content Include="Scripts\json\main\en\currencies.json" />
+    <Content Include="Scripts\json\main\en\dateFields.json" />
+    <Content Include="Scripts\json\main\en\languages.json" />
+    <Content Include="Scripts\json\main\en\localeDisplayNames.json" />
+    <Content Include="Scripts\json\main\en\numbers.json" />
+    <Content Include="Scripts\json\main\en\scripts.json" />
+    <Content Include="Scripts\json\main\en\territories.json" />
+    <Content Include="Scripts\json\main\en\timeZoneNames.json" />
+    <Content Include="Scripts\json\main\en\transformNames.json" />
+    <Content Include="Scripts\json\main\en\variants.json" />
     <Content Include="Scripts\json\main\nl\ca-generic.json" />
     <Content Include="Scripts\json\main\nl\ca-gregorian.json" />
     <Content Include="Scripts\json\main\nl\currencies.json" />
@@ -269,18 +328,17 @@
     <Content Include="Scripts\json\supplemental\timeData.json" />
     <Content Include="Scripts\json\supplemental\weekData.json" />
     <Content Include="Scripts\json\supplemental\windowsZones.json" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\_references.js" />
+    <Content Include="Scripts\vendor\clipboard\clipboard.min.js" />
+    <Content Include="Scripts\vendor\counter-up\jquery.counterup.min.js" />
+    <Content Include="Scripts\vendor\jquery.min.js" />
+    <Content Include="Scripts\vendor\prism\prism.js" />
+    <Content Include="Scripts\vendor\textarea-autogrow\textareaAutoGrow.js" />
+    <Content Include="Scripts\vendor\waypoints\waypoints.min.js" />
+    <Content Include="Scripts\vendor\what-input.min.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -297,7 +355,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -340,6 +397,8 @@
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Shared\Info.cshtml" />
+    <Content Include="Views\Home\Help.cshtml" />
+    <Content Include="Views\Home\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -347,15 +406,70 @@
     <Folder Include="Scripts\appspecifiek\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\json\availableLocales.json" />
+    <Content Include="Scripts\json\defaultContent.json" />
+    <Content Include="Scripts\json\main\de\ca-generic.json" />
+    <Content Include="Scripts\json\main\de\ca-gregorian.json" />
+    <Content Include="Scripts\json\main\de\currencies.json" />
+    <Content Include="Scripts\json\main\de\dateFields.json" />
+    <Content Include="Scripts\json\main\de\languages.json" />
+    <Content Include="Scripts\json\main\de\localeDisplayNames.json" />
+    <Content Include="Scripts\json\main\de\numbers.json" />
+    <Content Include="Scripts\json\main\de\scripts.json" />
+    <Content Include="Scripts\json\main\de\territories.json" />
+    <Content Include="Scripts\json\main\de\timeZoneNames.json" />
+    <Content Include="Scripts\json\main\de\transformNames.json" />
+    <Content Include="Scripts\json\main\de\variants.json" />
+    <Content Include="Scripts\json\main\es\ca-generic.json" />
+    <Content Include="Scripts\json\main\es\ca-gregorian.json" />
+    <Content Include="Scripts\json\main\es\currencies.json" />
+    <Content Include="Scripts\json\main\es\dateFields.json" />
+    <Content Include="Scripts\json\main\es\languages.json" />
+    <Content Include="Scripts\json\main\es\localeDisplayNames.json" />
+    <Content Include="Scripts\json\main\es\numbers.json" />
+    <Content Include="Scripts\json\main\es\scripts.json" />
+    <Content Include="Scripts\json\main\es\territories.json" />
+    <Content Include="Scripts\json\main\es\timeZoneNames.json" />
+    <Content Include="Scripts\json\main\es\transformNames.json" />
+    <Content Include="Scripts\json\main\es\variants.json" />
+    <Content Include="Scripts\json\main\fr\ca-generic.json" />
+    <Content Include="Scripts\json\main\fr\ca-gregorian.json" />
+    <Content Include="Scripts\json\main\fr\currencies.json" />
+    <Content Include="Scripts\json\main\fr\dateFields.json" />
+    <Content Include="Scripts\json\main\fr\languages.json" />
+    <Content Include="Scripts\json\main\fr\localeDisplayNames.json" />
+    <Content Include="Scripts\json\main\fr\numbers.json" />
+    <Content Include="Scripts\json\main\fr\scripts.json" />
+    <Content Include="Scripts\json\main\fr\territories.json" />
+    <Content Include="Scripts\json\main\fr\timeZoneNames.json" />
+    <Content Include="Scripts\json\main\fr\transformNames.json" />
+    <Content Include="Scripts\json\main\fr\variants.json" />
+    <Content Include="Scripts\json\main\it\ca-generic.json" />
+    <Content Include="Scripts\json\main\it\ca-gregorian.json" />
+    <Content Include="Scripts\json\main\it\currencies.json" />
+    <Content Include="Scripts\json\main\it\dateFields.json" />
+    <Content Include="Scripts\json\main\it\languages.json" />
+    <Content Include="Scripts\json\main\it\localeDisplayNames.json" />
+    <Content Include="Scripts\json\main\it\numbers.json" />
+    <Content Include="Scripts\json\main\it\scripts.json" />
+    <Content Include="Scripts\json\main\it\territories.json" />
+    <Content Include="Scripts\json\main\it\timeZoneNames.json" />
+    <Content Include="Scripts\json\main\it\transformNames.json" />
+    <Content Include="Scripts\json\main\it\variants.json" />
+    <Content Include="Scripts\json\main\overige.zip" />
+    <Content Include="Scripts\vendor\clipboard\.DS_Store" />
+    <Content Include="Scripts\vendor\textarea-autogrow\.DS_Store" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201507310948486_Initial.resx">
       <DependentUpon>201507310948486_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603151413370_AuxWebApp.resx">
+      <DependentUpon>201603151413370_AuxWebApp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

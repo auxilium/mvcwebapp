@@ -1,0 +1,66 @@
+@font-face {
+	font-family: 'Myriad Set Pro';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Myriad Set Pro'), url('../fonts/myriad-set-pro_text.ttf');
+	src: url('../fonts/myriad-set-pro_text.ttf') format('truetype'),
+		 url('../fonts/myriad-set-pro_text.eot'),
+		 url('../fonts/myriad-set-pro_text.otf'),
+		 url('../fonts/myriad-set-pro_text.woff') format('woff');
+
+}
+
+@font-face {
+	font-family: 'Myriad Set Pro Ultra Light';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Myriad Set Pro Ultra Light'), url('../fonts/myriad-set-pro_ultralight.ttf');
+	src: url('../fonts/myriad-set-pro_ultralight.ttf') format('truetype'),
+		 url('../fonts/myriad-set-pro_ultralight.eot'),
+		 url('../fonts/myriad-set-pro_ultralight.otf'),
+		 url('../fonts/myriad-set-pro_ultralight.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Myriad Set Pro Thin';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Myriad Set Pro Thin'), url('../fonts/myriad-set-pro_thin.ttf');
+	src: url('../fonts/myriad-set-pro_thin.ttf') format('truetype'),
+		 url('../fonts/myriad-set-pro_thin.eot'),
+		 url('../fonts/myriad-set-pro_thin.otf'),
+		 url('../fonts/myriad-set-pro_thin.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Myriad Set Pro Medium';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Myriad Set Pro Medium'), url('../fonts/myriad-set-pro_medium.ttf');
+	src: url('../fonts/myriad-set-pro_medium.ttf') format('truetype'),
+		 url('../fonts/myriad-set-pro_medium.eot'),
+		 url('../fonts/myriad-set-pro_medium.otf'),
+		 url('../fonts/myriad-set-pro_medium.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Myriad Set Pro SemiBold';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Myriad Set Pro SemiBold'), url('../fonts/myriad-set-pro_semibold.ttf');
+	src: url('../fonts/myriad-set-pro_semibold.ttf') format('truetype'),
+		 url('../fonts/myriad-set-pro_semibold.eot'),
+		 url('../fonts/myriad-set-pro_semibold.otf'),
+		 url('../fonts/myriad-set-pro_semibold.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Myriad Set Pro Bold';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Myriad Set Pro Bold'), url('../fonts/myriad-set-pro_bold.ttf');
+	src: url('../fonts/myriad-set-pro_bold.ttf') format('truetype'),
+		 url('../fonts/myriad-set-pro_bold.eot'),
+		 url('../fonts/myriad-set-pro_bold.otf'),
+		 url('../fonts/myriad-set-pro_bold.woff') format('woff');
+}

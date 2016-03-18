@@ -1,0 +1,239 @@
+/*
+	Bedrijf		: Auxilium BV
+	Gemaakt door : Martin Zuidwijk
+	Gemaakt op 	: 10-02-2016 
+
+	Kleuren
+	Orange:			#F37134    Green:	#82C341
+    Kind of Blue:	#68798C    Blue:  	#308FCE
+*/
+
+/*#############################################################################################
+## GENERAL LAYOUT
+#############################################################################################*/
+
+/* Global CSS styling for the entire web app */
+html, body { font-family: 'Myriad Set Pro', sans-serif !important; font-size: 1.15em; font-weight: normal; }
+
+/* Creating the sidebar (with a fixed width) and main-content */
+.sidebar { background: #333; left: 0; top: 0; bottom: 0; padding: 0; position: fixed; width: 300px; }
+.main-content {	margin: 0 0 0 300px; padding: 0 2em !important; }
+.main-content .row { max-width: none !important; }
+
+
+
+/*#############################################################################################
+## BRANDING
+#############################################################################################*/
+
+/* CSS or creating the Auxilium branding which is located in the bottom right corner of the sidebar */
+.aux-name {	position: absolute;	font-size: 0.85em; bottom: 17px; right: 165px; color: #FFF; }
+.aux-blocks { position: absolute; bottom: 10px; right: 20px; padding: 0; margin: 0; list-style-type: none; }
+.aux-blocks li { display: inline-block; width: 14px; height: 14px; }
+.aux-blocks li a { color: #FFF; }
+
+
+
+/*#############################################################################################
+## FONT RELATED
+#############################################################################################*/
+
+h1, h2, h3, h4, h5, h6 { font-family: 'Myriad Set Pro Thin', sans-serif !important; font-weight: normal !important; margin-bottom: 0.2em !important;}
+p, td { font-family: 'Myriad Set Pro Thin', sans-serif !important; font-weight: normal !important; font-size: 1.15em !important; }
+
+
+/*#############################################################################################
+## BUTTONS
+#############################################################################################*/
+
+/* Creating a little text shadow to make the text more readable */
+.button { text-shadow: 1px 1px 1px #666666 !important; }
+
+/* The buttons; primary, succes and warning are Auxilium colors. The rest is my own doing */
+.button.primary { background-color: #308FCE !important; }
+.button.secondary { background-color: #919191 !important; }
+.button.success { background-color: #82C341 !important; }
+.button.warning { background-color: #F37134 !important; }
+.button.alert {	background-color: #E84C3D !important; }
+
+/* Taken the original color (above) and added 5% to each CMYK value to get a slightly darker color */
+.button.primary:hover, .button.primary:focus { background-color: #2482C2 !important; } 
+.button.secondary:hover, .button.secondary:focus { background-color: #858585 !important; }
+.button.success:hover, .button.success:focus { background-color: #75B533 !important; }
+.button.warning:hover, .button.warning:focus { background-color: #E66326 !important; }
+.button.alert:hover, .button.alert:focus { background-color: #DB4030 !important; }
+
+
+
+/*#############################################################################################
+## MENU (IN SIDEBAR)
+#############################################################################################*/
+
+/* Web Application Name in the upper left corner of the sidebar */
+.app-name {	font-family: 'Myriad Set Pro', sans-serif !important; font-weight: normal !important; font-size: 1.4em; color: #FFF; font-weight: bold; text-transform: uppercase; padding: 15px 17px 10px 17px; }
+
+/* Fixes a problem off foundation (i think) with the focus of the first link */
+#nav-sidebar .menu li:first-child a:focus {	outline: none; }
+
+/* Creating lines above and under the menu items for a nice effect */
+#nav-sidebar .menu { border-bottom: 1px solid #525151; }
+#nav-sidebar .menu .is-active { border-bottom: none; }
+#nav-sidebar .menu li { border-top: 1px solid #525151; border-bottom: 1px solid #262626; }
+#nav-sidebar .menu li:last-child { border-bottom: 1px solid #262626; }
+#nav-sidebar .menu .is-active li:last-child { border-bottom: none; } 
+#nav-sidebar .menu li a { color: #FFF; font-size: 1em; padding: 0.8em;}
+ 
+/* Making the arrow white if a submenu is present */
+#nav-sidebar .is-accordion-submenu-parent > a::after { border-color: #FFF transparent; }
+
+/*#############################################################################################
+## TOPBAR
+#############################################################################################*/
+.top-bar, .top-bar ul{ background: #f3f3f3;}
+.top-bar, .menu > li > a {color: #308FCE; font-size: 0.9em;}
+/*#############################################################################################
+## FORM ELEMENTS
+#############################################################################################*/
+
+/* SPACING */
+.aux-form .row .columns { padding-left: 0 !important; }
+.aux-form .input-group { margin-bottom: 0.5em !important; }
+
+/* LABEL */
+.aux-form .input-group label { position: absolute; font-size: 0.9em; top: 0.4em; left: 3px !important; pointer-events: none; transition: 0.10s ease all; -webkit-transition: 0.10s ease all; }
+.aux-form fieldset legend, .aux-form fieldset label { font-size: 0.9em; }
+
+/* INPUT */
+.aux-form input[type="submit"] { background-color: #308FCE;	border: none; color: #FFF; }
+.aux-form input[type="submit"]:hover, .aux-form input[type="submit"]:active { background-color: #2482C2; border: none; color: #FFF; }
+.aux-form input:focus, .aux-form input:active {	outline: none; }
+.aux-form input[type='text'], .aux-form input[type='email'] { display: inline-block; box-shadow: none; border: none; height: 2em; border-bottom: 1px solid #CCC; font-size: 0.9em; padding: 0.7rem;	margin: 0 0 0.6rem; }
+.aux-form .input-group { display: inline-block;	position: relative; }
+.aux-form .input-group input { display: inline-block; padding-top: 1em; padding-left: 3px; font-size: 1em; }
+.aux-form .input-group input:focus { display: inline-block;	box-shadow: none; border: none;	height: 2em; border-bottom: 1px solid #308FCE; box-shadow: 0 1px 0 #308FCE; font-size: 1em; transition: 0.10s ease all; -webkit-transition: 0.10s ease all; }
+.aux-form .input-group input:focus + label, .aux-form .input-group input.has-value + label { display: inline-block; font-size: 0.75em; color: #0C7BC3; top: -1em; left: 3px; }
+
+/* TEXTAREA */
+.aux-form textarea:focus, .aux-form textarea:active { outline: none; }
+.aux-form textarea { display: inline-block; box-shadow: none; border: none; min-height: 3.15em; border-bottom: 1px solid #CCC; font-size: 0.9em; padding-bottom: 0.1em; margin: 0; overflow: hidden; resize: none; }
+.aux-form .input-group textarea { display: inline-block; padding-top: 0.5em; padding-left: 3px; font-size: 1em; }
+.aux-form .input-group textarea:focus { display: inline-block;	box-shadow: none; border: none;	height: 2em; border-bottom: 1px solid #308FCE; box-shadow: 0 1px 0 #308FCE; font-size: 1em; transition: 0.10s ease all; -webkit-transition: 0.10s ease all; }
+.aux-form .input-group textarea:focus + label, .aux-form .input-group textarea.has-value + label { display: inline-block; font-size: 0.75em; color: #0C7BC3; top: -1em; left: 3px; }
+
+/* SELECT (DROPDOWN) */
+.aux-form select { border: none; border-bottom: 1px solid #CCC; outline: none; margin-top: -3px; display: inline-block; padding-top: 13px; padding-bottom: 0; padding-left: 0; font-size: 1em; }
+.aux-form select option { border: 1px solid #308FCE; color: #333; }
+.aux-form select option:hover { background-color: #308FCE; color: #FFF; }
+.aux-form select + label { background-color: #FFF; padding-left: 3px; }
+.aux-form .input-group select:focus { display: inline-block; box-shadow: none; border: none; border-bottom: 1px solid #308FCE; box-shadow: 0 1px 0 #308FCE; transition: 0.10s ease all; -webkit-transition: 0.10s ease all; }
+.aux-form .input-group select:focus + label, .aux-form .input-group select.has-value + label { display: inline-block; background-color: transparent; color: #0C7BC3; top: -1em; left: 1px; font-size: 0.75em; }
+
+/* FIELDSET */
+.aux-form fieldset { padding-left: 3px; }
+
+/* CHECKBOX */
+
+/* Hiding the standard checkbox to replace it later with a icon */
+.aux-form input[type="checkbox"] { display: none; }
+/* Making the label to appear clickable by changing the mouse pointer to a hand and making the text unselectable */
+.aux-form input[type="checkbox"] + label { display: inline-block; cursor: pointer; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; margin-left: 0px !important; font-size: 1em; }
+/* Injecting our own checkbox icon (unchecked state) */
+.aux-form input[type="checkbox"] + label:before { display: inline-block; font-family: "FontAwesome"; content: "\f096"; width: 1em; margin-right: 5px; -webkit-font-smoothing: antialiased; animation: unchecked 130ms ease-in; }
+/* If checkbox is checked then show a different icon and animate it */
+.aux-form input[type="checkbox"]:checked + label:before { display: inline-block; font-family: "FontAwesome"; content: "\f14a"; color: #308FCE; width: 1em; margin-right: 5px; -webkit-font-smoothing: antialiased; animation: checked 130ms ease-in; }
+/* Making the label appear grayed out because of it's disabled state */
+.aux-form input[type="checkbox"]:disabled + label {	color: #A3A3A3; }
+.aux-form input[type="checkbox"]:disabled + label:before { display: inline-block; font-family: "FontAwesome"; content: "\f096"; color: #A3A3A3; width: 1em; margin-right: 5px; -webkit-font-smoothing: antialiased; }
+
+/* RADIO BUTTONS */
+
+/* Hiding the standard radio button to replace it later with a icon */
+.aux-form input[type="radio"] { display: none; }
+/* Making the label to appear clickable by changing the mouse pointer to a hand and making the text unselectable */
+.aux-form input[type="radio"] + label { display: inline-block; cursor: pointer; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; margin-left: 0 !important; }
+/* Injecting our own radio button icon (not selected state) */
+.aux-form input[type="radio"] + label:before { display: inline-block; font-family: "FontAwesome"; content: "\f1db"; width: 1em; margin-right: 5px; -webkit-font-smoothing: antialiased; animation: unchecked 130ms ease-in; }
+/* If radio is selected then show a different icon and animate it */
+.aux-form input[type="radio"]:checked + label:before { display: inline-block; font-family: "FontAwesome"; content: "\f192"; color: #308FCE; width: 1em; margin-right: 5px; -webkit-font-smoothing: antialiased; animation: checked 130ms ease-in; }
+/* Making the label appear grayed out because of it's disabled state */
+.aux-form input[type="radio"]:disabled + label {	color: #A3A3A3; }
+.aux-form input[type="radio"]:disabled + label:before { display: inline-block; font-family: "FontAwesome"; content: "\f1db"; color: #A3A3A3; width: 1em; margin-right: 5px; -webkit-font-smoothing: antialiased; }
+
+
+/* DIFFERENT COLORS
+.aux-form .input-group input:focus.aux-orange {	border-bottom: 2px solid #F37134; }
+.aux-form .input-group input:focus.aux-green { border-bottom: 2px solid #82C341; }
+.aux-form .input-group input:focus.aux-kind-of-blue { border-bottom: 2px solid #68798C; }
+.aux-form .input-group input:focus.aux-blue { border-bottom: 2px solid #308FCE; }
+
+.aux-form .input-group input:focus + label.aux-orange, .aux-form .input-group input.has-value + label.aux-orange { color: #F37134; }
+.aux-form .input-group input:focus + label.aux-green, .aux-form .input-group input.has-value + label.aux-green { color: #82C341; }
+.aux-form .input-group input:focus + label.aux-kind-of-blue, .aux-form .input-group input.has-value + label.aux-kind-of-blue { color: #68798C; }
+.aux-form .input-group input:focus + label.aux-blue, .aux-form .input-group input.has-value + label.aux-blue { color: #308FCE; }
+*/
+
+
+/*#############################################################################################
+## DASHBOARD TILES (USING CALLOUT OF FOUNDATION)
+#############################################################################################*/
+
+.callout.dashboard { padding: 0; height: 8em; border: none; }
+.callout.dashboard .icon { position: absolute; font-family: 'FontAwesome'; font-size: 6em; top: 0.15em; left: 0.1em; margin-top: -0.35em; color: #FFF; opacity: 0.1; animation: checked 500ms ease-in; }
+.callout.dashboard .number { position: absolute; top: 0.2em; right: 0.4em; font-family: 'Myriad Set Pro', sans-serif; font-weight: normal; font-size: 3em; color: #FFF; }
+.callout.dashboard .description { position: absolute; top: 3.5em; right: 1.15em; font-family: 'Myriad Set Pro Thin', sans-serif; font-weight: normal; font-size: 1.1em; color: #FFF; }
+.callout.dashboard a:hover .linkbox { background-color: rgba(0, 0, 0, 0.2); transition: all 100ms ease-in; }
+.callout.dashboard .linkbox { position: absolute; background-color: rgba(0, 0, 0, 0.1); height: 1.5em; width: 100%; bottom: 0; left: 0; }
+.callout.dashboard .linkbox .text { font-family: 'Myriad Set Pro Thin', sans-serif; font-weight: normal; font-size: 0.8em; text-transform: uppercase; color: #FFF; padding: 0.3em 0.8em; }
+.callout.dashboard .linkbox .arrow { position: absolute; bottom: 0; right: 0; font-family: 'FontAwesome'; font-weight: normal; font-size: 0.8em; color: #FFF; padding-right: 0.8em; padding-bottom: 0.1em; }
+
+
+
+/*#############################################################################################
+## KEYFRAME ANIMATIONS
+#############################################################################################*/
+
+@keyframes checked { 0% { transform: scale(0); } 90% { transform: scale(1.2); }	100% { transform: scale(1);	} }
+@keyframes unchecked { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+
+
+
+/*#############################################################################################
+## HELPER CLASSES
+#############################################################################################*/
+
+/* Making all the columns visible with a red border */
+/* .columns { border: 1px solid red !important; } */
+
+/* A simple class to help make a square */
+.color-block { width: 100px; height: 100px;	margin: 20px; }
+
+/* Classes to make it easy to asign a color to text or the background */
+.orange-txt { color: #F37134 }
+.orange-bg { background: #F37134; background-color: #F37134; }
+.green-txt { color: #82C341; }
+.green-bg { background: #82C341; background-color: #82C341; }
+.kind-of-blue-txt { color: #68798C; }
+.kind-of-blue-bg { background: #68798C; background-color: #68798C; }
+.blue-txt { color: #308FCE; }
+.blue-bg { background: #308FCE; background-color: #308FCE; }
+
+.spacer-sm  { padding-top: 10px !important; display: inline-block !important; }
+.spacer-md  { padding-top: 20px !important; display: inline-block !important; }
+.spacer-lg  { padding-top: 30px !important; display: inline-block !important; }
+.spacer-xl  { padding-top: 40px !important; display: inline-block !important; }
+.spacer-xxl { padding-top: 50px !important; display: inline-block !important; }
+
+.pad-btm-sm	{ padding-bottom: 10px !important; }
+.pad-btm-md	{ padding-bottom: 20px !important; }
+.pad-btm-lg	{ padding-bottom: 30px !important; }
+.pad-btm-xl	{ padding-bottom: 40px !important; }
+.pad-btm-xxl{ padding-bottom: 50px !important; }
+
+.no-padding { padding: 0; }
+.no-margin  { margin: 0; }
+
+
+.line-heading { background-color: #F37134; display: inline-block; width: 5px; height: 30px; float: left; margin-top: 8px; margin-right: 10px; }
+.row { margin-bottom: 0.5em !important; }
+
+

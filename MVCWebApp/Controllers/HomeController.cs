@@ -27,5 +27,12 @@ namespace MVCWebApp.Controllers
 
             return View();
         }
+
+        public ActionResult Help()
+        {
+            ViewBag.Message = "With some help you will get there!";
+
+            return View();
+        }
     }
 }

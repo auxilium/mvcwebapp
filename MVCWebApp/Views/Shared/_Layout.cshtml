@@ -1,44 +1,74 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.UI.WebControls
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Generic Web app</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@ViewBag.Title - Generic Web app</title>
+  @Styles.Render("~/Content/normalize.css")
+  @Styles.Render("~/Content/foundation.css")
+  @Styles.Render("~/Content/fonts.css")
+  @Styles.Render("~/Content/aux_style.css")
+  @Styles.Render("~/Content/demo.css")
+  @Styles.Render("~/Content/vendor/prism/prism.css")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Generic Web App CMS", "Index", "Applications", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Products", "Index", "Products")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Generic Web App</p>
-        </footer>
-    </div>
+  <!-- Begin sidebar -->
+<div class="sidebar">
+  <!-- Web Application Name -->
+  <div class="app-name">Auxilium MVC</div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+  <!-- Navigation menu -->
+  <nav id="nav-sidebar">
+    <ul class="vertical menu" data-accordian-menu>
+      <li>@Html.ActionLink("Generic Web App CMS", "Index", "Applications", new {area = ""}, new {@class = "navbar-brand"})</li>
+      <li>@Html.ActionLink("Products", "Index", "Products")</li>
+      <li>@Html.ActionLink("About", "About", "Home")</li>
+      <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+      <li>@Html.ActionLink("Help me uit de brand","Help", "Home")</li>
+    </ul>
+  </nav>
+  <!-- Aux branding -->
+  <ul class="aux-blocks">
+    <li class="aux-name"><a href="http://www.auxilium.nl/" target="_blank">AUXILIUM</a></li>
+    <li class="kind-of-blue-bg"></li>
+    <li class="green-bg"></li>
+    <li class="orange-bg"></li>
+    <li class="blue-bg"></li>
+  </ul>
+</div>
+<!-- End sidebar -->
+<div class="top-bar">
+  <div class="top-bar-right">
+    @Html.Partial("_LoginPartial")
+  </div>
+</div>
+<!-- End Topbar -->
+
+<div class="main-content">
+  <div class="spacer-md"></div>
+  <div class="row expanded">
+    <div class="small-12 columns">
+      @RenderBody()
+    </div>
+  </div>
+  <div class="spacer-sm"></div>
+</div>
+  <!-- End Maincontent -->
+
+  <!-- Starting Scripts -->
+  @Scripts.Render("~/bundles/jquery")
+  @Scripts.Render("~/bundles/jquery-min")
+  @Scripts.Render("~/bundles/what-input")
+  @Scripts.Render("~/bundles/textarea-grow")
+  @Scripts.Render("~/bundles/waypoints")
+  @Scripts.Render("~/bundles/foundation")
+  @Scripts.Render("~/bundles/app")
+  @Scripts.Render("~/bundles/clipboard")
+  @Scripts.Render("~/bundles/prism")
+  @Scripts.Render("~/bundles/demo")
+  @Scripts.Render("~/bundles/counterup")
+  @Scripts.Render("~/bundles/app")
+  @RenderSection("scripts", required: false)
 </body>
 </html>
