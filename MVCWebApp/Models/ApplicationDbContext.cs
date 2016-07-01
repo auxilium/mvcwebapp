@@ -7,8 +7,19 @@ using System.Web;
 
 namespace MVCWebApp.Models
 {
+    /*
+        I would use a single Context class inheriting from IdentityDbContext. 
+        This way you can have the context be aware of any relations between 
+        your classes and the IdentityUser and Roles of the IdentityDbContext. 
+        There is very little overhead in the IdentityDbContext, it is 
+        basically a regular DbContext with two DbSets. One for the users and
+        one for the roles.
+    */
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        /*
+        Voeg hieronder de klasses toe waarvan je wilt dat ze (middels een migratie) ook in de database komen.
+        */
         public DbSet<Product> Products { get; set; }
         public DbSet<Video> Videos { get; set; }
         public DbSet<Image> Images { get; set; }

@@ -21,12 +21,14 @@ namespace MVCWebApp
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+            bundles.Add(new ScriptBundle("~/bundles/foundation").Include(
+                      "~/Content/Complete/foundation/js/vendor/what-input.js",
+                      "~/Content/Complete/foundation/js/vendor/foundation.min.js",
+                      "~/Content/Complete/foundation/js/app.js",
+                      "~/Content/"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/Complete/foundation/css/foundation.min.css",
                       "~/Content/site.css"));
         }
     }
